@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Recetario</string>
+    <string name="all_recipes">All recipes</string>
+    <string name="add_recipe">Add recipe</string>
+    <string name="test">Test</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
