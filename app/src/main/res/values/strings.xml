@@ -3,7 +3,13 @@
     <string name="developer" translatable="false">Eltrio723</string>
     <string name="all_recipes">All recipes</string>
     <string name="add_recipe">Add recipe</string>
-    <string name="test">Test</string>
+    <string name="about">About</string>
+    <string name="info">Info</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="developer_name">Antonio Jiménez Amador</string>
+    <string name="github_page">https://github.com/Eltrio723</string>
+    <string name="official_email">jimenezaman@correo.ugr.es</string>
+
 </resources>

@@ -1,5 +1,7 @@
 package com.eltrio723.recetario;
 
-public class RecipeManager {
+import java.util.List;
 
+public class RecipeManager {
+    private List<Recipe> recipes;
 }

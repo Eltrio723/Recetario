@@ -9,10 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -55,10 +51,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AddRecipeFragment()).commit();
                 break;
-            case R.id.nav_test:
+            case R.id.nav_about:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new TestFragment()).commit();
-                Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+                        new AboutFragment()).commit();
                 break;
         }
 
