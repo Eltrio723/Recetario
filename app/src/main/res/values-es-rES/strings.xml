@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Recetario</string>
+    <string name="all_recipes">Todas las recetas</string>
+    <string name="add_recipe">Nueva receta</string>
+    <string name="test">Prueba</string>
+    <string name="navigation_drawer_open">Abrir cajón de navegación</string>
+    <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
+</resources>

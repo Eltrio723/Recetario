@@ -12,10 +12,14 @@
             android:id="@+id/nav_add_recipe"
             android:icon="@drawable/ic_add_recipe"
             android:title="@string/add_recipe" />
-        <item
-            android:id="@+id/nav_test"
-            android:icon="@drawable/ic_test"
-            android:title="@string/test" />
     </group>
+
+    <item android:title="Stuff">
+        <menu>
+            <item android:id="@+id/nav_test"
+                android:icon="@drawable/ic_test"
+                android:title="@string/test" />
+        </menu>
+    </item>
 
 </menu>
