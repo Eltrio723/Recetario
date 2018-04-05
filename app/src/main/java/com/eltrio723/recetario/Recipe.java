@@ -22,6 +22,18 @@ public class Recipe {
         this.steps = steps;
     }
 
+    public Recipe(String name, int servings, List<String> ingredients, List<Step> steps){
+        this.name = name;
+        this.servings = servings;
+        this.ingredients = ingredients;
+        this.steps = steps;
+    }
+
+    public Recipe(String name, int servings){
+        this.name = name;
+        this.servings = servings;
+    }
+
     //Getters and setters-------------
 
 
@@ -66,6 +78,15 @@ public class Recipe {
     }
 
     //Methods-----------------------
+
+    @Override
+    public String toString(){
+        return name;
+    }
+
+    public String toStringFull(){
+        return name + "\nServings: " + servings + "\nIngredients:\n" + ingredients.toString() + "\nSteps:\n" + steps.toString();
+    }
 
 
 

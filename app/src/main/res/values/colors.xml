@@ -23,4 +23,6 @@
     <color name="colorAccentLight">#F5C073</color>
     <color name="colorAccentPastel">#FFD9A3</color>
     <color name="colorAccentDeep">#8F5A0D</color>
+
+    <color name="colorLogoGray">#333333</color>
 </resources>

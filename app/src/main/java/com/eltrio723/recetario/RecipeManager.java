@@ -17,6 +17,7 @@ public class RecipeManager {
 
     private List<Recipe> recipes;
     private Context context;
+    private int next_id;
 
     public static RecipeManager getInstance() {
         return ourInstance;
@@ -24,6 +25,7 @@ public class RecipeManager {
 
     private RecipeManager() {
         recipes = new ArrayList<Recipe>();
+        next_id = recipes.size();
     }
 
     public void init(Context context){
@@ -39,7 +41,13 @@ public class RecipeManager {
         this.recipes = recipes;
     }
 
+    Recipe getRecipeOfIndex(int i){
+        return recipes.get(i);
+    }
+
     Boolean addRecipe(Recipe recipe){
+        recipe.setId(next_id);
+        next_id++;
         return recipes.add(recipe);
     }
 

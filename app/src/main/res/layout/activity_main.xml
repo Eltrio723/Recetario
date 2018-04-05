@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.eltrio723.recetario.MainActivity"
+    android:theme="@style/AppTheme.NoActionBar"
     tools:openDrawer="start">
 
     <LinearLayout
@@ -21,12 +22,15 @@
             android:background="@color/colorPrimary"
             android:elevation="4dp"
             android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
-        <FrameLayout
-            android:id="@+id/fragment_container"
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:id="@+id/all_recipes_list_view">
+
+        </ListView>
+
 
     </LinearLayout>
 

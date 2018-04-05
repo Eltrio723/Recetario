@@ -1,5 +1,6 @@
 package com.eltrio723.recetario;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Debug;
 import android.support.annotation.NonNull;
@@ -12,6 +13,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,12 +24,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    private final static String ALL_RECIPES_FRAGMENT_TAG = "ALL_RECIPES_FRAGMENT_TAG";
-    private final static String ADD_RECIPE_FRAGMENT_TAG = "ADD_RECIPE_FRAGMENT_TAG";
-    private final static String ABOUT_FRAGMENT_TAG = "ABOUT_FRAGMENT_TAG";
 
     private DrawerLayout drawer;
     private RecipeManager recipeManager;
+
+    private static final String RECIPE_TO_SHOW_ID = "RECIPE_TO_SHOW_ID";
+
+    private ListView listView;
 
 
     @Override
@@ -44,34 +50,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new AllRecipesFragment(),ALL_RECIPES_FRAGMENT_TAG).commit();
-            navigationView.setCheckedItem(R.id.nav_all_recipes);
-        }
-
         recipeManager = RecipeManager.getInstance();
         recipeManager.init(this.getApplicationContext());
 
+        navigationView.setCheckedItem(R.id.nav_all_recipes);
+
+        listView = (ListView) findViewById(R.id.all_recipes_list_view);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+                Intent showRecipeIntent = new Intent(view.getContext(),ShowRecipeActivity.class);
+                showRecipeIntent.putExtra(RECIPE_TO_SHOW_ID, position);
+                startActivityForResult(showRecipeIntent,0);
+
+            }
+        });
+
+        /*ArrayAdapter<Recipe> arrayAdapter = new ArrayAdapter<Recipe>(this,
+                android.R.layout.simple_list_item_1, recipeManager.getRecipes());
+        listView.setAdapter(arrayAdapter);*/
+
         //PRUEBA****************************************
-        Test();
+        if(recipeManager.getRecipes().size()==0)
+            Test();
+        //**********************************************
+
+        refresh();
 
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_all_recipes:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AllRecipesFragment(), ALL_RECIPES_FRAGMENT_TAG).commit();
+                /*Intent allRecipesIntent = new Intent(this,MainActivity.class);
+                startActivity(allRecipesIntent);*/
                 break;
             case R.id.nav_add_recipe:
-                Intent i = new Intent(this,AddRecipeActivity.class);
-                startActivity(i);
+                Intent addRecipeIntent = new Intent(this,AddRecipeActivity.class);
+                startActivity(addRecipeIntent);
                 break;
             case R.id.nav_about:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AboutFragment(), ABOUT_FRAGMENT_TAG).commit();
+                Intent aboutIntent = new Intent(this,AboutActivity.class);
+                startActivity(aboutIntent);
                 break;
         }
 
@@ -87,23 +112,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(drawer.isDrawerOpen(GravityCompat.START)){
             drawer.closeDrawer(GravityCompat.START);
         }
-        else if (true/*Si el fragmento actual no es all recipes*/){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new AllRecipesFragment(),ALL_RECIPES_FRAGMENT_TAG).commit();
-            navigationView.setCheckedItem(R.id.nav_all_recipes);
-        }
         else {
             super.onBackPressed();
+        }
+
     }
 
+    void refresh(){
+        ArrayAdapter<Recipe> arrayAdapter = new ArrayAdapter<Recipe>(this,
+                android.R.layout.simple_list_item_1, recipeManager.getRecipes());
+        listView.setAdapter(arrayAdapter);
     }
 
     void Test(){
         List<String> ingredients = new ArrayList<String>();
         List<Step> steps = new ArrayList<Step>();
 
-        recipeManager.addRecipe(new Recipe(1,"hola",2, ingredients, steps));
-        recipeManager.addRecipe(new Recipe(2,"adios",2, ingredients, steps));
+        recipeManager.addRecipe(new Recipe("Receta 1",2, ingredients, steps));
+        recipeManager.addRecipe(new Recipe("Receta 2",2, ingredients, steps));
         List<Recipe> r = recipeManager.getRecipes();
         for(int i=0;i<r.size();i++){
             Log.d("tag",r.get(i).getName());
