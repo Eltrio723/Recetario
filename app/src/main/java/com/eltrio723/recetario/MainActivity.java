@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Debug;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -68,14 +70,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addRecipeIntent = new Intent(MainActivity.this,AddRecipeActivity.class);
+                startActivity(addRecipeIntent);
+            }
+        });
+
         /*ArrayAdapter<Recipe> arrayAdapter = new ArrayAdapter<Recipe>(this,
                 android.R.layout.simple_list_item_1, recipeManager.getRecipes());
         listView.setAdapter(arrayAdapter);*/
 
         //PRUEBA****************************************
-        if(recipeManager.getRecipes().size()==0)
-            Test();
+        /*if(recipeManager.getRecipes().size()==0)
+            Test();*/
         //**********************************************
+
+        recipeManager.loadRecipes();
 
         refresh();
 
@@ -127,6 +141,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     void Test(){
         List<String> ingredients = new ArrayList<String>();
         List<Step> steps = new ArrayList<Step>();
+
+        ingredients.add("Ingredient 1");
+        ingredients.add("Ingredient 2");
+
+        steps.add(new Step(1, "Paso número 1"));
+        steps.add(new Step(2, "Paso número 2"));
+        steps.add(new Step(3, "Paso número 3"));
 
         recipeManager.addRecipe(new Recipe("Receta 1",2, ingredients, steps));
         recipeManager.addRecipe(new Recipe("Receta 2",2, ingredients, steps));

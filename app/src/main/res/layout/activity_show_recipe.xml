@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ShowRecipeActivity">
 
+
+    <TextView
+        android:id="@+id/textView_recipe_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="@string/developer"/>
+
 </android.support.constraint.ConstraintLayout>

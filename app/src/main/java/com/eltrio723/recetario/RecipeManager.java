@@ -19,6 +19,8 @@ public class RecipeManager {
     private Context context;
     private int next_id;
 
+    private Recipe temporalRecipe;
+
     public static RecipeManager getInstance() {
         return ourInstance;
     }
@@ -26,6 +28,7 @@ public class RecipeManager {
     private RecipeManager() {
         recipes = new ArrayList<Recipe>();
         next_id = recipes.size();
+        temporalRecipe = new Recipe();
     }
 
     public void init(Context context){
@@ -48,7 +51,9 @@ public class RecipeManager {
     Boolean addRecipe(Recipe recipe){
         recipe.setId(next_id);
         next_id++;
-        return recipes.add(recipe);
+        Boolean result = recipes.add(recipe);
+        storeRecipes();
+        return result;
     }
 
     void clear(){
@@ -72,5 +77,12 @@ public class RecipeManager {
         recipes = gson.fromJson(json, type);
     }
 
+    public void storeTempRecipe(Recipe r){
+        temporalRecipe = r;
+    }
+
+    public Recipe loadTempRecipe(){
+        return temporalRecipe;
+    }
 
 }

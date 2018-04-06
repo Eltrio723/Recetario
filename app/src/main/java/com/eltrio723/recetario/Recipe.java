@@ -1,4 +1,8 @@
 package com.eltrio723.recetario;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class Recipe {
@@ -13,6 +17,9 @@ public class Recipe {
 
 
     //Constructors--------------------
+
+    public Recipe(){
+    }
 
     public Recipe(int id, String name, int servings, List<String> ingredients, List<Step> steps){
         this.id = id;
@@ -87,6 +94,29 @@ public class Recipe {
     public String toStringFull(){
         return name + "\nServings: " + servings + "\nIngredients:\n" + ingredients.toString() + "\nSteps:\n" + steps.toString();
     }
+
+    public void copy(Recipe r){
+        this.id = r.id;
+        this.name = r.name;
+        this.servings = r.servings;
+        this.ingredients = r.ingredients;
+        this.steps = r.steps;
+    }
+
+    public String toJson(){
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
+
+    public void fromJson(String json){
+        Recipe aux;
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Recipe>>(){}.getType();
+        //aux = gson.fromJson(json, type);
+        //this.copy(aux);
+    }
+
+
 
 
 

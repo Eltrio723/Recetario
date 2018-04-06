@@ -3,6 +3,7 @@ package com.eltrio723.recetario;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class ShowRecipeActivity extends AppCompatActivity {
 
@@ -18,6 +19,9 @@ public class ShowRecipeActivity extends AppCompatActivity {
         int index = intent.getIntExtra(RECIPE_TO_SHOW_ID,0);
 
         recipe = RecipeManager.getInstance().getRecipeOfIndex(index);
+
+        TextView textView = findViewById(R.id.textView_recipe_string);
+        textView.setText(recipe.toStringFull());
 
     }
 }
