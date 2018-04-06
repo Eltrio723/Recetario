@@ -7,9 +7,23 @@
     <string name="info">Info</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="ingredient">Ingredient</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="add">Add</string>
+    <string name="recipe_name">Recipe name</string>
+    <string name="servings">Servings</string>
+    <string name="servings_colon">Servings: </string>
+    <string name="step">Step</string>
+    <string name="steps_colon">Steps: </string>
+    <string name="steps">Steps</string>
+    <string name="finish">Finish</string>
+    <string name="delete">Delete</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="ingredients_colon">Ingredients: </string>
 
-    <string name="developer_name">Antonio Jiménez Amador</string>
-    <string name="github_page">https://github.com/Eltrio723</string>
-    <string name="official_email">jimenezaman@correo.ugr.es</string>
+    <string name="developer_name" translatable="false">Antonio Jiménez Amador</string>
+    <string name="github_page" translatable="false">https://github.com/Eltrio723</string>
+    <string name="official_email" translatable="false">jimenezaman@correo.ugr.es</string>
 
 </resources>

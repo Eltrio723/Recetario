@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Recipe name" />
+        android:hint="@string/recipe_name" />
 
     <EditText
         android:id="@+id/editText_servings"
@@ -23,7 +23,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="5"
-        android:hint="Servings"
+        android:hint="@string/servings"
         android:inputType="number" />
 
     <LinearLayout
@@ -35,7 +35,7 @@
             android:id="@+id/button_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_weight="1"
@@ -48,7 +48,7 @@
             android:layout_gravity="end|top"
             android:layout_marginEnd="32dp"
             android:layout_marginTop="32dp"
-            android:text="Next"
+            android:text="@string/next"
             android:layout_weight="1" />
 
 

@@ -56,8 +56,16 @@ public class RecipeManager {
         return result;
     }
 
+    void removeRecipe(Recipe r){
+        recipes.remove(r);
+    }
+
     void clear(){
         recipes.clear();
+    }
+
+    Context getContext(){
+        return context;
     }
 
     void storeRecipes(){

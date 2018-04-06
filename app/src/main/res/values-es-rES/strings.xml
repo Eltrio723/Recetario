@@ -7,4 +7,18 @@
     <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
     <string name="about">Acerca de</string>
     <string name="info">Información</string>
+    <string name="ingredient">Ingrediente</string>
+    <string name="cancel">Cancelar</string>
+    <string name="next">Siguiente</string>
+    <string name="add">Añadir</string>
+    <string name="recipe_name">Nombre de la receta</string>
+    <string name="servings">Raciones</string>
+    <string name="step">Paso</string>
+    <string name="finish">Finalizar</string>
+    <string name="delete">Borrar</string>
+    <string name="ingredients">Ingredientes</string>
+    <string name="ingredients_colon">"Ingredientes: "</string>
+    <string name="servings_colon">"Raciones: "</string>
+    <string name="steps_colon">"Pasos: "</string>
+    <string name="steps">Pasos</string>
 </resources>

@@ -33,6 +33,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="cacaca" />
                                       <entry key="foregroundImage" value="D:\MEGAsync\Unity\Logo\Iconos\icono_claro_1024x1024.png" />
                                       <entry key="outputName" value="ic_launcher_eltrio723" />
                                     </map>

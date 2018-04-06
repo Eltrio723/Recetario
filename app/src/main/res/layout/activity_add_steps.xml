@@ -20,15 +20,20 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:id="@+id/editText_step"/>
+            android:layout_height="150dp"
+            android:hint="@string/step"
+            android:id="@+id/editText_step"
+            android:gravity="top|left"
+            android:maxLines="10"
+            android:scrollbars="vertical"/>
+
 
         <Button
             android:id="@+id/button_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start|top"
-            android:text="Add" />
+            android:text="@string/add" />
 
     </LinearLayout>
 
@@ -52,7 +57,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_weight="1"
-            android:text="Cancel" />
+            android:text="@string/cancel" />
 
         <Button
             android:id="@+id/button_finish"
@@ -62,7 +67,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginTop="32dp"
             android:layout_weight="1"
-            android:text="Finish" />
+            android:text="@string/finish" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

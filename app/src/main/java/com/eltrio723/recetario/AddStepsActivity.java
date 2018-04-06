@@ -51,7 +51,6 @@ public class AddStepsActivity extends AppCompatActivity {
         mButtonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Step step = new Step(steps.size()+1, mEditTex_step.getText().toString());
                 steps.add(new Step(steps.size()+1, mEditTex_step.getText().toString()));
                 mEditTex_step.setText("");
             }

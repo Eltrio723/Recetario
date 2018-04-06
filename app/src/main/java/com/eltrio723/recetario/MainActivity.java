@@ -80,14 +80,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        /*ArrayAdapter<Recipe> arrayAdapter = new ArrayAdapter<Recipe>(this,
-                android.R.layout.simple_list_item_1, recipeManager.getRecipes());
-        listView.setAdapter(arrayAdapter);*/
-
-        //PRUEBA****************************************
-        /*if(recipeManager.getRecipes().size()==0)
-            Test();*/
-        //**********************************************
 
         recipeManager.loadRecipes();
 
@@ -100,10 +92,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.nav_all_recipes:
-                /*Intent allRecipesIntent = new Intent(this,MainActivity.class);
-                startActivity(allRecipesIntent);*/
-                break;
             case R.id.nav_add_recipe:
                 Intent addRecipeIntent = new Intent(this,AddRecipeActivity.class);
                 startActivity(addRecipeIntent);

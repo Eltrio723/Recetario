@@ -95,26 +95,6 @@ public class Recipe {
         return name + "\nServings: " + servings + "\nIngredients:\n" + ingredients.toString() + "\nSteps:\n" + steps.toString();
     }
 
-    public void copy(Recipe r){
-        this.id = r.id;
-        this.name = r.name;
-        this.servings = r.servings;
-        this.ingredients = r.ingredients;
-        this.steps = r.steps;
-    }
-
-    public String toJson(){
-        Gson gson = new Gson();
-        return gson.toJson(this);
-    }
-
-    public void fromJson(String json){
-        Recipe aux;
-        Gson gson = new Gson();
-        Type type = new TypeToken<List<Recipe>>(){}.getType();
-        //aux = gson.fromJson(json, type);
-        //this.copy(aux);
-    }
 
 
 

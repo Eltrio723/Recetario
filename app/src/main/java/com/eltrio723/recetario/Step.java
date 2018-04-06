@@ -34,7 +34,7 @@ public class Step {
     }
 
     public String toString(){
-        return id + ".- " + description;
+        return RecipeManager.getInstance().getContext().getString(R.string.step) + " " + id + ":\n" + " " + description + "\n";
     }
 
 }

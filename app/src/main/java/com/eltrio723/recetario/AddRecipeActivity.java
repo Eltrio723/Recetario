@@ -11,8 +11,6 @@ import java.io.Serializable;
 
 public class AddRecipeActivity extends AppCompatActivity {
 
-    private static final String RECIPE_TO_PASS = "RECIPE_TO_PASS";
-
     Button mButtonNext, mButtonCancel;
     EditText mEditTex_name, mEditText_servings;
     Recipe recipe;
@@ -43,7 +41,7 @@ public class AddRecipeActivity extends AppCompatActivity {
                 mEditTex_name = (EditText) findViewById(R.id.editText_name);
                 String name = mEditTex_name.getText().toString();
 
-                mEditText_servings = (EditText) findViewById(R.id.editText_name);
+                mEditText_servings = (EditText) findViewById(R.id.editText_servings);
 
                 int servings =  0;
 
@@ -57,8 +55,7 @@ public class AddRecipeActivity extends AppCompatActivity {
                 RecipeManager.getInstance().storeTempRecipe(recipe);
 
                 Intent add_ingredients_intent = new Intent(AddRecipeActivity.this,AddIngredientsActivity.class);
-                //String json = recipe.toJson();
-                //add_ingredients_intent.putExtra(RECIPE_TO_PASS,json);
+
                 startActivity(add_ingredients_intent);
             }
         });
