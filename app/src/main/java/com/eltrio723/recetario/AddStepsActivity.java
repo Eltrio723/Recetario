@@ -44,6 +44,7 @@ public class AddStepsActivity extends AppCompatActivity {
                 recipe.setSteps(steps);
                 RecipeManager.getInstance().addRecipe(recipe);
                 Intent all_recipes_intent = new Intent(AddStepsActivity.this, MainActivity.class);
+                all_recipes_intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(all_recipes_intent);
             }
         });
