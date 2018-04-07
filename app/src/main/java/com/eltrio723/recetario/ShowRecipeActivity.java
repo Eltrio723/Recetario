@@ -1,6 +1,8 @@
 package com.eltrio723.recetario;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +23,7 @@ public class ShowRecipeActivity extends AppCompatActivity {
     private ListView listView_ingredients, listView_steps;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_recipe);
 
@@ -56,12 +58,39 @@ public class ShowRecipeActivity extends AppCompatActivity {
         mButtonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RecipeManager.getInstance().removeRecipe(recipe);
-                RecipeManager.getInstance().storeRecipes();
-                Intent all_recipes_intent = new Intent(ShowRecipeActivity.this, MainActivity.class);
-                startActivity(all_recipes_intent);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ShowRecipeActivity.this);
+
+                builder.setMessage(R.string.delete_message);
+                builder.setTitle(R.string.delete_title);
+                builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        delete();
+                    }
+                });
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+
+                dialog.show();
+
             }
         });
 
     }
+
+
+    void delete(){
+        RecipeManager.getInstance().removeRecipe(recipe);
+        RecipeManager.getInstance().storeRecipes();
+        Intent all_recipes_intent = new Intent(ShowRecipeActivity.this, MainActivity.class);
+        startActivity(all_recipes_intent);
+    }
+
+
 }

@@ -21,4 +21,7 @@
     <string name="servings_colon">"Raciones: "</string>
     <string name="steps_colon">"Pasos: "</string>
     <string name="steps">Pasos</string>
+    <string name="delete_message">¿Está seguro de que quiere borrar esta receta?
+    Esta acción no puede deshacerse.</string>
+    <string name="delete_title">Borrar receta</string>
 </resources>
