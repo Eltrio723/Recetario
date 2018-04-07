@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-        recipeManager.loadRecipes();
 
         refresh();
 
@@ -126,41 +125,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         listView.setAdapter(arrayAdapter);
     }
 
-    void Test(){
-        List<String> ingredients = new ArrayList<String>();
-        List<Step> steps = new ArrayList<Step>();
 
-        ingredients.add("Ingredient 1");
-        ingredients.add("Ingredient 2");
-
-        steps.add(new Step(1, "Paso número 1"));
-        steps.add(new Step(2, "Paso número 2"));
-        steps.add(new Step(3, "Paso número 3"));
-
-        recipeManager.addRecipe(new Recipe("Receta 1",2, ingredients, steps));
-        recipeManager.addRecipe(new Recipe("Receta 2",2, ingredients, steps));
-        List<Recipe> r = recipeManager.getRecipes();
-        for(int i=0;i<r.size();i++){
-            Log.d("tag",r.get(i).getName());
-        }
-
-        recipeManager.storeRecipes();
-        recipeManager.clear();
-        List<Recipe> rp = recipeManager.getRecipes();
-        for(int i=0;i<rp.size();i++){
-            Log.d("tag",rp.get(i).getName());
-        }
-        if(rp.isEmpty()){
-            Log.d("tag","Vacio");
-        }
-        recipeManager.loadRecipes();
-        rp = recipeManager.getRecipes();
-        for(int i=0;i<rp.size();i++){
-            Log.d("tag",rp.get(i).getName());
-        }
-        if(rp.isEmpty()){
-            Log.d("tag","Vacio");
-        }
-    }
 
 }

@@ -27,12 +27,13 @@ public class RecipeManager {
 
     private RecipeManager() {
         recipes = new ArrayList<Recipe>();
-        next_id = recipes.size();
         temporalRecipe = new Recipe();
     }
 
     public void init(Context context){
         this.context = context;
+        loadRecipes();
+        next_id = recipes.size();
     }
 
 
@@ -48,12 +49,11 @@ public class RecipeManager {
         return recipes.get(i);
     }
 
-    Boolean addRecipe(Recipe recipe){
+    void addRecipe(Recipe recipe){
         recipe.setId(next_id);
         next_id++;
-        Boolean result = recipes.add(recipe);
+        this.recipes.add(recipe);
         storeRecipes();
-        return result;
     }
 
     void removeRecipe(Recipe r){
@@ -82,7 +82,9 @@ public class RecipeManager {
         Gson gson = new Gson();
         String json = sharedPreferences.getString(STORED_RECIPES_KEY,"");
         Type type = new TypeToken<List<Recipe>>(){}.getType();
-        recipes = gson.fromJson(json, type);
+        this.recipes = gson.fromJson(json, type);
+        if(recipes == null)
+            recipes = new ArrayList<Recipe>();
     }
 
     public void storeTempRecipe(Recipe r){
