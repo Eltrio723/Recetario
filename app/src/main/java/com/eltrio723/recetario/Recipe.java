@@ -3,6 +3,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Recipe {
@@ -19,6 +20,11 @@ public class Recipe {
     //Constructors--------------------
 
     public Recipe(){
+        this.id = 0;
+        this.name = "";
+        this.servings = 0;
+        this.ingredients = new ArrayList<String>();
+        this.steps = new ArrayList<Step>();
     }
 
     public Recipe(int id, String name, int servings, List<String> ingredients, List<Step> steps){
@@ -39,6 +45,8 @@ public class Recipe {
     public Recipe(String name, int servings){
         this.name = name;
         this.servings = servings;
+        this.ingredients = new ArrayList<String>();
+        this.steps = new ArrayList<Step>();
     }
 
     //Getters and setters-------------
