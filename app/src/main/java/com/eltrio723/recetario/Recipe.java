@@ -1,4 +1,10 @@
 package com.eltrio723.recetario;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
+import android.support.annotation.NonNull;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -6,14 +12,25 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity(tableName = "recipes")
 public class Recipe {
 
     //Data----------------------------
 
+    @NonNull
+    @PrimaryKey(autoGenerate = true)
+
+    @ColumnInfo(name = "id")
     private int id;
+    @ColumnInfo(name = "name")
     private String name;
+    @ColumnInfo(name = "servings")
     private int servings;
+    @ColumnInfo(name = "ingredients")
+    @TypeConverters(IngredientsConverters.class)
     private List<String> ingredients;
+    @ColumnInfo(name = "steps")
+    @TypeConverters(StepsConverters.class)
     private List<Step> steps;
 
 

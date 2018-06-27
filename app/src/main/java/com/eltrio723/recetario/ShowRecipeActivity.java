@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.List;
-
 public class ShowRecipeActivity extends AppCompatActivity {
 
     private static final String RECIPE_TO_SHOW_ID = "RECIPE_TO_SHOW_ID";
@@ -86,8 +84,7 @@ public class ShowRecipeActivity extends AppCompatActivity {
 
 
     void delete(){
-        RecipeManager.getInstance().removeRecipe(recipe);
-        RecipeManager.getInstance().storeRecipes();
+        RecipeManager.getInstance().deleteRecipe(recipe);
         Intent all_recipes_intent = new Intent(ShowRecipeActivity.this, MainActivity.class);
         startActivity(all_recipes_intent);
     }

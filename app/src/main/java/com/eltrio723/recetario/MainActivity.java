@@ -1,28 +1,20 @@
 package com.eltrio723.recetario;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Debug;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -33,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final String RECIPE_TO_SHOW_ID = "RECIPE_TO_SHOW_ID";
 
     private ListView listView;
+    ArrayAdapter<Recipe> arrayAdapter;
 
 
     @Override
@@ -55,9 +48,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recipeManager = RecipeManager.getInstance();
         recipeManager.init(this.getApplicationContext());
 
+
         navigationView.setCheckedItem(R.id.nav_all_recipes);
 
         listView = (ListView) findViewById(R.id.all_recipes_list_view);
+
+        arrayAdapter = new ArrayAdapter<Recipe>(this,
+                android.R.layout.simple_list_item_1, recipeManager.getRecipeList());
+        listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -120,9 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     void refresh(){
-        ArrayAdapter<Recipe> arrayAdapter = new ArrayAdapter<Recipe>(this,
-                android.R.layout.simple_list_item_1, recipeManager.getRecipes());
-        listView.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
     }
 
 
